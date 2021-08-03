@@ -76,10 +76,12 @@ const usuariosDelete = async(req, res) => {
     // Como borrarlo fisicamente
     const usuario = await Usuario.findByIdAndUpdate(id, { estado: false });
 
+    // usuario autenticado
+    const usuarioAutenticado = req.usuarioAutenticado;
 
     res.json({
-        ok: true,
-        usuario
+        usuario,
+        usuarioAutenticado
     });
 }
 
